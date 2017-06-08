@@ -1,0 +1,26 @@
+<table>
+<tr>
+  <th>totalCount</th>
+  <th>buyCount</th>
+  <th>sellCount</th>
+  <th>buyRatio</th>
+  <th>sellRatio</th>
+  <th>correctBuyRatio</th>
+  <th>correctSellRatio</th>
+  <th>correctCompositeRatio</th>
+  <th>createTime</th>
+</tr>
+{% for item in section_list %}
+<tr>
+  <td>{{ item.totalcount }}</td>
+  <td>{{ item.buycount }}</td>
+  <td>{{ item.sellcount }}</td>
+  <td>{{ item.buyratio }}</td>
+  <td>{{ item.sellratio }}</td>
+  <td>{{ item.correctbuyratio }}</td>
+  <td>{{ item.correctsellratio }}</td>
+  <td>{{ item.correctcompositeratio }}</td>
+  <td>{{ item.createtime }}</td>
+</tr>
+{% endfor %}
+</table>

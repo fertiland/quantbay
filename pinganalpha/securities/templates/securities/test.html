@@ -1,0 +1,8 @@
+<h1>Combine</h1>
+<ul>
+{% for combineItem in object_list %}
+    <li>{{ combineItem.code }}</li>
+{% empty %}
+    <li>No code yet.</li>
+{% endfor %}
+</ul>

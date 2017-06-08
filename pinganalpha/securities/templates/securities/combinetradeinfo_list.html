@@ -1,0 +1,33 @@
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css" />
+<table>
+<tr>
+  <th>amplitude</th>
+  <th>code</th>
+  <th>sharpeRatio</th>
+  <th>today</th>
+  <th>prePrice</th>
+  <th>curPrice</th>
+  <th>tradeType</th>
+  <th>volume</th>
+  <th>portfilio</th>
+  <th>algorithm</th>
+  <th>stockName</th>
+  <th>createTime</th>
+</tr>
+{% for item in section_list %}
+<tr class='color:red'>
+  <td>{{ item.amplitude }}</td>
+  <td>{{ item.code }}</td>
+  <td>{{ item.sharperatio }}</td>
+  <td>{{ item.today }}</td>
+  <td>{{ item.preprice }}</td>
+  <td>{{ item.curprice }}</td>
+  <td>{{ item.tradetype }}</td>
+  <td>{{ item.volume }}</td>
+  <td>{{ item.portfilio }}</td>
+  <td>{{ item.algorithm }}</td>
+  <td>{{ item.stockname }}</td>
+  <td>{{ item.createtime }}</td>
+</tr>
+{% endfor %}
+</table>

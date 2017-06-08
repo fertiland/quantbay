@@ -1,0 +1,40 @@
+<table>
+<tr>
+  <th>code</th>
+  <th>stockName</th>
+  <th>industryName</th>
+  <th>today</th>
+  <th>tradeType</th>
+  <th>algorithm</th>
+  <th>valueAtRisk</th>
+  <th>hurst</th>
+  <th>correctRatio</th>
+  <th>Returns</th>
+  <th>Portfolio</th>
+  <th>sharpeRatio</th>
+  <th>finalAvgProfit</th>
+  <th>finalAvgReturn</th>
+  <th>finalTrades</th>
+  <th>createTime</th>
+</tr>
+{% for item in section_list %}
+<tr>
+  <td>{{ item.code }}</td>
+  <td>{{ item.stockname }}</td>
+  <td>{{ item.industryname }}</td>
+  <td>{{ item.today }}</td>
+  <td>{{ item.tradetype }}</td>
+  <td>{{ item.algorithm }}</td>
+  <td>{{ item.valueatrisk }}</td>
+  <td>{{ item.hurst }}</td>
+  <td>{{ item.correctratio }}</td>
+  <td>{{ item.evaluationcumulativereturns }}</td>
+  <td>{{ item.evaluationfinalportfolio }}</td>
+  <td>{{ item.evaluationsharperatio }}</td>
+  <td>{{ item.finalavgprofit }}</td>
+  <td>{{ item.finalavgreturn }}</td>
+  <td>{{ item.finaltrades }}</td>
+  <td>{{ item.createtime }}</td>
+</tr>
+{% endfor %}
+</table>
