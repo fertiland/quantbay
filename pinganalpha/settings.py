@@ -64,11 +64,14 @@ DATABASES = {
 #    }
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'security_finance',
-        'USER': 'root',
-        'PASSWORD': 'mysql106',
-        'HOST': '192.168.1.105',
-        'PORT': '3306',
+        'OPTIONS': {
+                   'read_default_file': '/etc/mysql/my.cnf',
+                   },
+        #        'NAME': 'security_finance',
+        #'USER': 'xxxx',
+        #'PASSWORD': 'xxxx',
+        #'HOST': 'xxxxx',
+        #'PORT': '3306',
     } 
 }
 

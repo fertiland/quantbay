@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 import sys
+import ConfigParser
 
 
 from pyalgotrade.technical import ma 
@@ -23,11 +24,9 @@ import baiduPushMessage
         
 def queryBuyRatioBySection(sectionName, field='buyRatio'):
     # Obtain a database connection to the MySQL instance
-    db_host = '192.168.1.105'
-    db_user = 'root'
-    db_pass = 'mysql106'
-    db_name = 'security_finance'
     #MySQLdb.converters.conversions
+    #con = mdb.connect(db_host, db_user, db_pass, db_name)
+    db_host, db_user, db_pass, db_name = getDbConfigurations()
     con = mdb.connect(db_host, db_user, db_pass, db_name)
     """Obtains a list of the ticker symbols in the database."""
     with con: 
@@ -38,11 +37,8 @@ def queryBuyRatioBySection(sectionName, field='buyRatio'):
 
 def queryCreateTimeBySection(sectionName, field='createTime'):
     # Obtain a database connection to the MySQL instance
-    db_host = '192.168.1.105'
-    db_user = 'root'
-    db_pass = 'mysql106'
-    db_name = 'security_finance'
     #MySQLdb.converters.conversions
+    db_host, db_user, db_pass, db_name = getDbConfigurations()
     con = mdb.connect(db_host, db_user, db_pass, db_name)
     """Obtains a list of the ticker symbols in the database."""
     with con: 
@@ -53,11 +49,8 @@ def queryCreateTimeBySection(sectionName, field='createTime'):
 
 def queryCorrectBuyRatioBySection(sectionName, field='correctBuyRatio'):
     # Obtain a database connection to the MySQL instance
-    db_host = '192.168.1.105'
-    db_user = 'root'
-    db_pass = 'mysql106'
-    db_name = 'security_finance'
     #MySQLdb.converters.conversions
+    db_host, db_user, db_pass, db_name = getDbConfigurations()
     con = mdb.connect(db_host, db_user, db_pass, db_name)
     """Obtains a list of the ticker symbols in the database."""
     #SELECT (values) FROM myapp_my_object \ WHERE myapp_my_object.datetime_attr LIKE BINARY 2009-08-22%
@@ -264,3 +257,13 @@ def buildSMA(period, values, smaMaxLen=dataseries.DEFAULT_MAX_LEN):
         seqDs.append(value)
     return ret
 
+def getDbConfigurations():
+    config = ConfigParser.RawConfigParser()
+    config.read('/etc/mysql/myclient.cnf')
+    database = config.get('client', 'database')
+    host = config.get('client', 'host')
+    #port = config.getint('client', 'port')
+    user = config.get('client', 'user')
+    password = config.get('client', 'password')
+
+    return (host, user, password, database)
