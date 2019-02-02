@@ -1,2 +1,2 @@
 # quantbay
-The algorithm trading system about the trade trend analysis
+The algorithm trading info about the trade trend analysis.
